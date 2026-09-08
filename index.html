@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>선릉 바이브코딩 해커톤 — 6시간, 혼자, 배포까지</title>
+<meta name="description" content="2026년 10월 31일 토요일 14:00–20:00, 선릉. 밤 안 샙니다. 팀 안 짭니다. 6시간 뒤 각자 만든 것이 인터넷에 올라가 있습니다.">
+<meta property="og:title" content="선릉 바이브코딩 해커톤 — 6시간, 혼자, 배포까지">
+<meta property="og:description" content="10/31(토) 14:00–20:00 · 선릉 · 개인전 · 참가비 무료">
+<style>
+:root{
+  --bg:#fbfaf8; --fg:#17171a; --dim:#63636b; --line:#e6e3dd; --card:#fff;
+  --accent:#111; --accent-fg:#fff; --mark:#ffe9a8; --ok:#1f6b3a;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#131315; --fg:#eceae6; --dim:#9b968e; --line:#2c2b29; --card:#1c1c1e;
+  --accent:#eceae6; --accent-fg:#131315; --mark:#4a3f18; --ok:#6cc48c;
+}}
+:root[data-theme="light"]{
+  --bg:#fbfaf8; --fg:#17171a; --dim:#63636b; --line:#e6e3dd; --card:#fff;
+  --accent:#111; --accent-fg:#fff; --mark:#ffe9a8; --ok:#1f6b3a;
+}
+:root[data-theme="dark"]{
+  --bg:#131315; --fg:#eceae6; --dim:#9b968e; --line:#2c2b29; --card:#1c1c1e;
+  --accent:#eceae6; --accent-fg:#131315; --mark:#4a3f18; --ok:#6cc48c;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.72 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",
+  "Noto Sans KR",Segoe UI,sans-serif;
+  word-break:keep-all; overflow-wrap:anywhere;}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+section{padding:44px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+h1{font-size:clamp(28px,6.4vw,42px);line-height:1.22;letter-spacing:-.03em;margin:0 0 14px;font-weight:800}
+h2{font-size:20px;letter-spacing:-.02em;margin:0 0 18px;font-weight:750}
+h3{font-size:16px;margin:0 0 5px;font-weight:700}
+p{margin:0 0 14px}
+.dim{color:var(--dim)}
+.small{font-size:14px}
+
+/* hero */
+header{padding:60px 0 44px}
+.kicker{font-size:12.5px;font-weight:750;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--dim);margin:0 0 16px}
+.lede{font-size:17.5px;margin:0 0 26px}
+mark{background:var(--mark);color:inherit;padding:0 3px;border-radius:2px}
+
+/* fact strip */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 26px}
+.facts div{background:var(--card);padding:14px 15px}
+.facts dt{font-size:11.5px;color:var(--dim);font-weight:700;letter-spacing:.06em;margin-bottom:3px}
+.facts dd{margin:0;font-size:15.5px;font-weight:700;letter-spacing:-.01em}
+
+.cta{display:inline-block;background:var(--accent);color:var(--accent-fg);
+  text-decoration:none;font-weight:750;font-size:16px;padding:15px 30px;border-radius:10px}
+.cta:hover{opacity:.87}
+.cta-note{font-size:13.5px;color:var(--dim);margin:11px 0 0}
+
+/* three pillars */
+.pillars{display:grid;gap:13px}
+.pillar{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--fg);
+  border-radius:10px;padding:17px 19px}
+.pillar h3{font-size:16.5px}
+.pillar p{margin:0;font-size:14.8px;color:var(--dim);line-height:1.66}
+
+/* schedule */
+table{width:100%;border-collapse:collapse;font-size:14.8px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--dim);letter-spacing:.05em;font-weight:700;text-transform:uppercase}
+td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;width:104px}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+ul{margin:0 0 14px;padding-left:19px}
+li{margin-bottom:7px}
+li::marker{color:var(--dim)}
+
+.note{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.8px}
+.note p:last-child{margin-bottom:0}
+
+.en{font-size:14.6px}
+.en h2{font-size:17px}
+.en p{margin-bottom:12px}
+
+footer{padding:34px 0 60px;border-top:1px solid var(--line);font-size:13.5px;color:var(--dim)}
+footer a{color:inherit}
+a{color:var(--fg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">2026 · 선릉 · 개인전</p>
+  <h1>6시간 뒤,<br>혼자 만든 게<br>인터넷에 올라가 있습니다.</h1>
+  <p class="lede">
+    바이브코딩 해커톤입니다. <mark>밤 안 샙니다.</mark> <mark>팀 안 짭니다.</mark>
+    토요일 오후에 와서 저녁에 각자 배포하고 갑니다.
+  </p>
+
+  <dl class="facts">
+    <div><dt>날짜</dt><dd>10월 31일 (토)</dd></div>
+    <div><dt>시간</dt><dd>14:00 – 20:00</dd></div>
+    <div><dt>장소</dt><dd>선릉</dd></div>
+    <div><dt>참가비</dt><dd>없음</dd></div>
+  </dl>
+
+  <a class="cta" href="https://hackon.mandeun.com/">참가 신청하기</a>
+  <p class="cta-note">로그인 없이 신청됩니다 · 정원 20명</p>
+</header>
+
+<section>
+  <h2>이 해커톤이 다르게 하는 세 가지</h2>
+  <div class="pillars">
+
+    <div class="pillar">
+      <h3>1. 밤을 새우지 않습니다</h3>
+      <p>
+        해커톤이 36시간·밤샘으로 굴러가는 동안, 돌볼 가족이 있는 사람과
+        체력이 예전 같지 않은 사람은 조용히 빠졌습니다. 그건 실력 문제가 아니라
+        설계 문제입니다. 이 대회는 <strong>토요일 오후 6시간</strong>이고,
+        저녁 8시에 끝나고 각자 집에 갑니다.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <h3>2. 팀을 짜지 않습니다 — 전원 개인전</h3>
+      <p>
+        낯선 사람과 팀을 짜는 30분, 역할이 안 맞아 흘려보내는 시간,
+        한 명이 안 와서 무너지는 팀. 개인전은 이 셋이 전부 없습니다.
+        혼자 와서 혼자 만들고 혼자 냅니다. 처음 오셔도 어색할 일이 없습니다.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <h3>3. 아무도 빈손으로 돌아가지 않습니다</h3>
+      <p>
+        보통은 우승자만 발표하고 나머지 결과물은 그날로 사라집니다.
+        여기서는 마감 후 <strong>전원이 자기 자리에서 시연</strong>하고,
+        심사위원과 참가자가 돌아다니며 전부 봅니다.
+        그리고 <strong>모두가 자기 점수 분해와 심사평을 받습니다.</strong>
+        「왜 떨어졌는지 모르겠다」로 끝나지 않습니다.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>하루가 이렇게 갑니다</h2>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>시간</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td>14:00</td><td><strong>오프닝 · 현장 미션 공개</strong><br>
+        <span class="dim">주제는 지금 공개돼 있지만, 조건 하나는 이 자리에서 엽니다.
+        미리 다 만들어 온 사람이 유리하지 않게 하기 위해서입니다.</span></td></tr>
+      <tr><td>14:20</td><td><strong>만들기 · 240분</strong><br>
+        <span class="dim">큰 화면에 남은 시간과 아직 안 낸 사람이 뜹니다.
+        「언제까지예요」를 아무도 안 묻게 됩니다.</span></td></tr>
+      <tr><td>18:20</td><td><strong>제출 마감</strong><br>
+        <span class="dim">서버가 막습니다. 주소를 아는 사람만 늦게 내는 일이 없습니다.</span></td></tr>
+      <tr><td>18:30</td><td><strong>갤러리 워크 · 40분</strong><br>
+        <span class="dim">각자 자리에서 시연합니다. 발표 순서를 기다리지 않습니다.</span></td></tr>
+      <tr><td>19:10</td><td><strong>발표 · 시상</strong><br>
+        <span class="dim">상위 5명만 무대에서 3분씩. 나머지는 이미 갤러리 워크에서 다 보여줬습니다.</span></td></tr>
+      <tr><td>20:00</td><td><strong>끝</strong><br>
+        <span class="dim">정시에 끝냅니다. 저녁 약속 있으셔도 됩니다.</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>이런 분을 부릅니다</h2>
+  <ul>
+    <li><strong>AI로 뭔가 만들어 봤는데 끝까지 못 가본 분</strong> — 배포까지 가는 게 이 대회의 전부입니다.</li>
+    <li><strong>개발자가 아닌 분</strong> — 코드를 직접 못 써도 됩니다. 그게 바이브코딩입니다.</li>
+    <li><strong>40대·50대</strong> — 앞선 모임에서 이미 함께했습니다. 나이로 밀리는 자리 아닙니다.</li>
+    <li><strong>혼자 오시는 분</strong> — 전원 개인전이라 혼자가 기본값입니다.</li>
+    <li><strong>해커톤이 처음인 분</strong> — 6시간이고 밤을 안 새웁니다. 첫 해커톤으로 알맞습니다.</li>
+  </ul>
+  <div class="note">
+    <p><strong>가져오실 것</strong> — 노트북, 충전기, 쓰던 AI 도구 계정.</p>
+    <p><strong>준비돼 있는 것</strong> — 자리마다 콘센트, 와이파이, 저녁 식사.</p>
+  </div>
+</section>
+
+<section>
+  <h2>심사</h2>
+  <p>심사표를 <strong>시작할 때 미리 공개</strong>합니다. 끝나고 나서 기준을 알게 되는 일은 없습니다.</p>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>항목</th><th>보는 것</th></tr></thead>
+    <tbody>
+      <tr><td>완성</td><td>지금 인터넷에서 열리는가. 데모 영상이 아니라 <strong>주소</strong>로 냅니다</td></tr>
+      <tr><td>미션</td><td>현장에서 공개된 조건을 반영했는가</td></tr>
+      <tr><td>쓸모</td><td>누가 이걸 왜 쓰는지 한 문장으로 설명되는가</td></tr>
+      <tr><td>완주</td><td>6시간을 어디에 썼는가 — 만들다 만 것도 과정이 보이면 점수가 있습니다</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small dim" style="margin-top:14px">
+    심사위원은 서로 다른 것을 보는 사람으로 섭외합니다. 순위와 다른 사람 점수는
+    심사위원에게도 안 보여줍니다 — 보이면 점수가 끌려갑니다.
+  </p>
+</section>
+
+<section>
+  <h2>누가 여나</h2>
+  <p>
+    <strong>mandeun</strong>이 엽니다. 서강대 경영학과에서
+    <strong>바이브코딩의 기획부터 배포까지의 방법론</strong>을 연구하며
+    실제 서비스 두 개를 만들었고, 연세대에서 관련 인강을 런칭했습니다.
+  </p>
+  <p>
+    지금까지 두 번의 모임을 열었습니다. 한 번은 <strong>40·50대</strong>를 대상으로,
+    한 번은 <strong>이미 잘 쓰는 사람들</strong>을 대상으로. 이번이 세 번째이자 첫 해커톤입니다.
+  </p>
+  <p class="small dim">
+    이 대회는 직접 만든 오픈소스 해커톤 운영 도구
+    <a href="https://hackon.mandeun.com/">HACK:ON</a>으로 굴러갑니다.
+    코드는 <a href="https://github.com/mandeun/hackon">공개돼 있습니다</a>.
+  </p>
+</section>
+
+<section class="en" lang="en">
+  <h2>In English</h2>
+  <p>
+    <strong>Seolleung Vibe Coding Hackathon</strong> — Saturday, 31 October 2026,
+    14:00–20:00 KST, Seolleung, Seoul. Free to enter. <strong>Solo format: no teams.</strong>
+  </p>
+  <p>
+    Six hours, one person, one deployed URL at the end. We deliberately designed against the
+    three things people complain about most: overnight formats that exclude anyone with
+    caregiving duties or health limits, team-matching friction, and the void that most
+    participants' work disappears into. Everyone demos in a gallery walk, and
+    <strong>everyone receives their score breakdown and written feedback</strong>.
+  </p>
+  <p>
+    Built and judged around the modern AI web stack — v0, the AI SDK and Next.js —
+    and run on <a href="https://github.com/mandeun/hackon">HACK:ON</a>, an open-source
+    hackathon platform we wrote ourselves. Organised by <strong>mandeun</strong>,
+    who researches vibe-coding methodology (concept through deployment) at Sogang
+    University's business school and launched a related online course at Yonsei University.
+  </p>
+  <p>Two prior community meetups have been run — one for participants in their 40s and 50s, one for experienced builders. This is the third gathering and the first hackathon.</p>
+</section>
+
+<footer>
+  <p>
+    <a class="cta" href="https://hackon.mandeun.com/">참가 신청하기</a>
+  </p>
+  <p style="margin-top:20px">
+    선릉 바이브코딩 해커톤 · 2026년 10월 31일 (토) 14:00–20:00<br>
+    주최 mandeun · 문의는 <a href="https://hackon.mandeun.com/">신청 페이지</a>에서<br>
+    <a href="https://hackon.mandeun.com/">HACK:ON</a> ·
+    <a href="https://github.com/mandeun/hackon">GitHub</a>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
