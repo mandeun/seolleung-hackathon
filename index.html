@@ -124,6 +124,10 @@ details .body p:last-child{margin-bottom:0}
 .en p{font-size:14.5px;margin-bottom:12px;color:var(--dim)}
 .en strong{color:var(--fg)}
 
+.kvdef{display:grid;gap:12px;margin-top:20px}
+.kvdef>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 19px}
+.kvdef b{display:block;font-size:16px;font-weight:750;margin-bottom:6px;letter-spacing:-.01em}
+.kvdef span{display:block;font-size:15px;color:var(--dim);line-height:1.72}
 .langbar{display:flex;gap:8px;padding:14px 0 0}
 .langbar a{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-decoration:none;
   color:var(--faint);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
@@ -148,6 +152,10 @@ footer{padding:36px 0 56px;border-top:1px solid var(--line)}
     10월 31일 토요일, 선릉에서 <mark>6시간</mark> 해커톤을 합니다.<br>
     오후 1시에 모여서 <strong>7시에 각자 만든 걸 인터넷에 올려놓고</strong> 헤어집니다.
   </p>
+  <p class="lede" style="font-size:15.5px;color:var(--dim)">
+    만들고 싶은 게 있었는데 아직 못 만드셨다면, 그날 하루로 하나 만들고 가시면 됩니다.
+    <strong>강의를 들으셨든 안 들으셨든 상관없습니다.</strong>
+  </p>
   <p class="byline">
     주최 mandeun · 서강대에서 바이브코딩 방법론을 연구하고 연세대에서 인강을 냈습니다.
     이번이 세 번째 모임이자 첫 해커톤입니다.
@@ -161,7 +169,7 @@ footer{padding:36px 0 56px;border-top:1px solid var(--line)}
   </dl>
 
   <a class="cta" href="https://hackon.mandeun.com/">신청하기</a>
-  <p class="cta-note">로그인 없이 신청됩니다 · 20명 마감</p>
+  <p class="cta-note">신청 페이지(HACK:ON)로 이동합니다 · 로그인 없이 1분 · 20명 마감</p>
 </header>
 
 <!-- ══ 왜 6시간 ══ -->
@@ -182,6 +190,72 @@ footer{padding:36px 0 56px;border-top:1px solid var(--line)}
     완성도를 높이려다 못 내는 게 제일 흔한 실패입니다.
     <strong>6시간 마감은 그걸 강제로 부수려고 있는 겁니다.</strong>
     7시에 무조건 끝나니까 "조금만 더 다듬고"가 애초에 불가능합니다.
+  </p>
+</section>
+
+<!-- ══ 처음 오시는 분께 ══ -->
+<section>
+  <h2>처음 들어보는 말이 있으시다면</h2>
+  <p class="h2sub">이 페이지에 나오는 말 세 개만 알면 됩니다.</p>
+
+  <div class="kvdef">
+    <div>
+      <b>바이브코딩</b>
+      <span>AI에게 <strong>말로 시켜서</strong> 프로그램을 만드는 방식입니다.
+      "이런 화면 만들어줘" 하면 AI가 코드를 써 줍니다.
+      <strong>코드를 직접 쓸 줄 몰라도 됩니다.</strong> 필요한 건 "뭘 만들지"가 분명한 것뿐입니다.</span>
+    </div>
+    <div>
+      <b>배포</b>
+      <span>만든 걸 <strong>인터넷에 올려서 남도 볼 수 있게</strong> 하는 것입니다.
+      내 컴퓨터에만 있으면 나만 볼 수 있는데, 배포하면 주소가 생겨서
+      카톡으로 링크를 보낼 수 있게 됩니다. <strong>이 대회의 목표가 이겁니다.</strong></span>
+    </div>
+    <div>
+      <b>해커톤</b>
+      <span>정해진 시간 안에 뭔가를 만들어보는 모임입니다.
+      보통은 이틀씩 밤을 새우는데, <strong>여기는 토요일 오후 6시간</strong>입니다.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 뭘 만드나 ══ -->
+<section>
+  <h2>그래서 뭘 만드나요</h2>
+  <p class="h2sub">가장 많이 받는 질문입니다.</p>
+  <p>
+    <strong>분야는 자유입니다.</strong> 업무에 쓸 도구든, 가족을 위한 것이든,
+    그냥 만들어보고 싶었던 것이든 됩니다. 정해진 주제가 없습니다.
+  </p>
+  <p>
+    대신 <strong>13시에 조건 하나가 공개</strong>됩니다. 무엇을 만들든 그 조건을 반영하시면 됩니다.
+    미리 다 만들어 온 분이 유리해지지 않게 하려는 장치이고,
+    <strong>240분 안에 반영할 수 있는 크기</strong>로만 냅니다.
+  </p>
+  <div class="note">
+    <p class="small" style="margin-bottom:0">
+      뭘 만들지 안 정하고 오셔도 됩니다.
+      <strong>그동안 덮어뒀던 폴더를 들고 오시는 것</strong>도 좋은 출발입니다.
+      오프닝에서 각자 만들 걸 한 줄로 정리하는 시간을 드립니다.
+    </p>
+  </div>
+</section>
+
+<!-- ══ 막히면 ══ -->
+<section>
+  <h2>혼자 하다 막히면요</h2>
+  <p>
+    개인전이지만 <strong>혼자 방치되는 건 아닙니다.</strong>
+    주최자가 6시간 내내 자리에 있습니다. 손 드시면 갑니다.
+  </p>
+  <p>
+    다만 <strong>답을 대신 만들어 드리지는 않습니다.</strong>
+    막힌 지점을 같이 보고, 어디를 검색하거나 어떻게 물어보면 될지까지만 알려드립니다.
+    남이 대신 만든 건 그날 이후로 못 고치게 되니까요.
+  </p>
+  <p class="small dim" style="margin-bottom:0">
+    <strong>여기 오시는 분들 중에 「원래 잘하는 사람」은 거의 없습니다.</strong>
+    지난 두 번의 모임도 그랬습니다. 다들 만들다 만 폴더 하나씩 들고 오셨습니다.
   </p>
 </section>
 
@@ -273,9 +347,14 @@ footer{padding:36px 0 56px;border-top:1px solid var(--line)}
       <tr><td>13:00</td><td><strong>오프닝 · 현장 미션 공개</strong><br>
         <span class="dim small">주제는 미리 공개돼 있지만 조건 하나는 이 자리에서 엽니다.
         미리 다 만들어 온 사람이 유리하지 않게요.</span></td></tr>
-      <tr><td>13:20</td><td><strong>만들기 · 240분</strong><br>
+      <tr><td>13:20</td><td><strong>만들기 · 1부</strong><br>
         <span class="dim small">큰 화면에 남은 시간과 아직 안 낸 사람이 뜹니다.
         "언제까지예요"를 아무도 안 묻게 됩니다.</span></td></tr>
+      <tr><td>15:30</td><td><strong>간식 · 쉬는 시간 (15분)</strong><br>
+        <span class="dim small">다 같이 쉽니다. 물론 계속 하셔도 됩니다.
+        화장실·통화·바람 쐬기 좋은 지점입니다.</span></td></tr>
+      <tr><td>15:45</td><td><strong>만들기 · 2부</strong><br>
+        <span class="dim small">여기서부터가 진짜입니다. 만들던 걸 줄이는 결정을 하실 시점이기도 합니다.</span></td></tr>
       <tr><td>17:20</td><td><strong>제출 마감</strong><br>
         <span class="dim small">서버가 막습니다. 주소를 아는 사람만 늦게 내는 일이 없습니다.</span></td></tr>
       <tr><td>17:30</td><td><strong>갤러리 워크 · 40분</strong><br>
@@ -348,6 +427,35 @@ footer{padding:36px 0 56px;border-top:1px solid var(--line)}
   </details>
 
   <details>
+    <summary>다들 잘하는 사람만 올 것 같은데요</summary>
+    <div class="body">
+      <p>지난 두 번의 모임도 <strong>「원래 잘하는 사람」은 거의 없었습니다.</strong>
+      다들 만들다 만 폴더 하나씩 들고 오셨습니다.</p>
+      <p>그리고 개인전이라 <strong>남과 비교당하는 구조가 아닙니다.</strong>
+      옆 사람이 뭘 만들든 내 6시간은 내 것입니다.
+      심사도 「누가 더 잘했나」가 아니라 「끝까지 갔나」를 크게 봅니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>혼자 하다 막히면 어떡하죠?</summary>
+    <div class="body">
+      <p><strong>주최자가 6시간 내내 자리에 있습니다.</strong> 손 드시면 갑니다.</p>
+      <p>다만 답을 대신 만들어 드리지는 않습니다. 막힌 지점을 같이 보고,
+      어디를 찾아보거나 AI에게 어떻게 물어보면 될지까지 알려드립니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>중간에 쉬는 시간이 있나요?</summary>
+    <div class="body">
+      <p><strong>15:30에 15분 쉽니다.</strong> 간식 시간이기도 합니다.</p>
+      <p>그 외에도 언제든 나갔다 오셔도 됩니다. 자리를 지키라고 하지 않습니다.
+      화장실도 통화도 편하게 하세요.</p>
+    </div>
+  </details>
+
+  <details>
     <summary>혼자 가도 괜찮나요?</summary>
     <div class="body"><p>
       <strong>혼자 오시는 게 기본입니다.</strong> 전원 개인전이라 팀을 짜지 않습니다.
@@ -385,7 +493,7 @@ footer{padding:36px 0 56px;border-top:1px solid var(--line)}
   <details>
     <summary>정말 무료인가요? 나중에 뭘 파나요?</summary>
     <div class="body"><p>
-      참가비 없고 저녁도 제공합니다. 파는 것 없습니다.
+      참가비 없습니다. 파는 것도 없습니다.
       이 대회는 제가 만든 오픈소스 해커톤 운영 도구 <strong>HACK:ON</strong>의 첫 실전이라,
       실제로 굴려보는 게 저에게 남는 것입니다. 코드도 공개돼 있습니다.
     </p></div>
