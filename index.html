@@ -4,100 +4,140 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>선릉 바이브코딩 해커톤 — 6시간, 혼자, 배포까지</title>
-<meta name="description" content="2026년 10월 31일 토요일 13:00–19:00, 선릉. 밤 안 샙니다. 팀 안 짭니다. 6시간 뒤 각자 만든 것이 인터넷에 올라가 있습니다.">
-<meta property="og:title" content="선릉 바이브코딩 해커톤 — 6시간, 혼자, 배포까지">
-<meta property="og:description" content="10/31(토) 13:00–19:00 · 선릉 · 개인전 · 참가비 무료">
+<meta name="description" content="10/31(토) 13–19시 선릉. 강의는 다 들었는데 내 건 없는 분들을 위한 6시간 개인전 해커톤. 밤 안 샙니다. 팀 안 짭니다. 참가비 없음.">
+<meta property="og:title" content="강의는 다 들으셨는데, 아직 내 건 없으신가요">
+<meta property="og:description" content="10/31(토) 13–19시 · 선릉 · 개인전 6시간 · 참가비 무료. 7시에 각자 주소 하나씩 들고 나갑니다.">
+<meta property="og:type" content="website">
 <style>
 :root{
-  --bg:#fbfaf8; --fg:#17171a; --dim:#63636b; --line:#e6e3dd; --card:#fff;
-  --accent:#111; --accent-fg:#fff; --mark:#ffe9a8; --ok:#1f6b3a;
+  --bg:#fbfaf8; --fg:#17171a; --dim:#5f5f68; --faint:#8b8b93;
+  --line:#e6e3dd; --card:#fff; --sunk:#f4f2ee;
+  --accent:#111; --accent-fg:#fff; --mark:#ffe27a;
 }
-@media(prefers-color-scheme:dark){:root{
-  --bg:#131315; --fg:#eceae6; --dim:#9b968e; --line:#2c2b29; --card:#1c1c1e;
-  --accent:#eceae6; --accent-fg:#131315; --mark:#4a3f18; --ok:#6cc48c;
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121214; --fg:#eceae6; --dim:#a19c94; --faint:#7d786f;
+  --line:#2b2a28; --card:#1b1b1d; --sunk:#191918;
+  --accent:#eceae6; --accent-fg:#121214; --mark:#5a4a12;
 }}
-:root[data-theme="light"]{
-  --bg:#fbfaf8; --fg:#17171a; --dim:#63636b; --line:#e6e3dd; --card:#fff;
-  --accent:#111; --accent-fg:#fff; --mark:#ffe9a8; --ok:#1f6b3a;
-}
 :root[data-theme="dark"]{
-  --bg:#131315; --fg:#eceae6; --dim:#9b968e; --line:#2c2b29; --card:#1c1c1e;
-  --accent:#eceae6; --accent-fg:#131315; --mark:#4a3f18; --ok:#6cc48c;
+  --bg:#121214; --fg:#eceae6; --dim:#a19c94; --faint:#7d786f;
+  --line:#2b2a28; --card:#1b1b1d; --sunk:#191918;
+  --accent:#eceae6; --accent-fg:#121214; --mark:#5a4a12;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);
-  font:16px/1.72 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",
+  font:16px/1.75 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,
   "Noto Sans KR",Segoe UI,sans-serif;
-  word-break:keep-all; overflow-wrap:anywhere;}
-.wrap{max-width:680px;margin:0 auto;padding:0 22px}
-section{padding:44px 0;border-top:1px solid var(--line)}
-section:first-of-type{border-top:0}
-h1{font-size:clamp(28px,6.4vw,42px);line-height:1.22;letter-spacing:-.03em;margin:0 0 14px;font-weight:800}
-h2{font-size:20px;letter-spacing:-.02em;margin:0 0 18px;font-weight:750}
-h3{font-size:16px;margin:0 0 5px;font-weight:700}
-p{margin:0 0 14px}
-.dim{color:var(--dim)}
-.small{font-size:14px}
+  word-break:keep-all;overflow-wrap:anywhere;
+  padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:660px;margin:0 auto;padding:0 22px}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h1{font-size:clamp(27px,6.6vw,40px);line-height:1.25;letter-spacing:-.033em;margin:0 0 16px;font-weight:800}
+h2{font-size:clamp(19px,4.4vw,23px);letter-spacing:-.025em;margin:0 0 8px;font-weight:750;line-height:1.35}
+.h2sub{color:var(--dim);font-size:15px;margin:0 0 22px}
+h3{font-size:16.5px;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+p{margin:0 0 15px}
+.dim{color:var(--dim)} .small{font-size:14.5px} .tiny{font-size:13px;color:var(--faint)}
+strong{font-weight:700}
+mark{background:var(--mark);color:var(--fg);padding:0 4px;border-radius:2px}
+a{color:var(--fg)}
 
-/* hero */
-header{padding:60px 0 44px}
-.kicker{font-size:12.5px;font-weight:750;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--dim);margin:0 0 16px}
-.lede{font-size:17.5px;margin:0 0 26px}
-mark{background:var(--mark);color:inherit;padding:0 3px;border-radius:2px}
+/* ── hero ── */
+header{padding:52px 0 46px}
+.eyebrow{display:inline-block;font-size:12px;font-weight:750;letter-spacing:.12em;
+  color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:5px 13px;margin:0 0 20px}
+.lede{font-size:17px;margin:0 0 12px}
+.byline{font-size:13.5px;color:var(--faint);margin:0 0 26px}
 
-/* fact strip */
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
-  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 26px}
-.facts div{background:var(--card);padding:14px 15px}
-.facts dt{font-size:11.5px;color:var(--dim);font-weight:700;letter-spacing:.06em;margin-bottom:3px}
-.facts dd{margin:0;font-size:15.5px;font-weight:700;letter-spacing:-.01em}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:13px;
+  overflow:hidden;margin:0 0 24px}
+@media(min-width:560px){.facts{grid-template-columns:repeat(4,1fr)}}
+.facts div{background:var(--card);padding:13px 15px}
+.facts dt{font-size:11px;color:var(--faint);font-weight:700;letter-spacing:.07em;margin-bottom:2px}
+.facts dd{margin:0;font-size:15px;font-weight:750;letter-spacing:-.015em}
 
-.cta{display:inline-block;background:var(--accent);color:var(--accent-fg);
-  text-decoration:none;font-weight:750;font-size:16px;padding:15px 30px;border-radius:10px}
-.cta:hover{opacity:.87}
-.cta-note{font-size:13.5px;color:var(--dim);margin:11px 0 0}
+/* ── cta ── */
+.cta{display:block;width:100%;text-align:center;background:var(--accent);color:var(--accent-fg);
+  text-decoration:none;font-weight:750;font-size:16.5px;padding:17px 24px;border-radius:12px;
+  letter-spacing:-.01em}
+.cta:active{transform:translateY(1px)}
+.cta-note{font-size:13.5px;color:var(--faint);margin:10px 0 0;text-align:center}
+.cta-block{margin:30px 0 0}
 
-/* three pillars */
-.pillars{display:grid;gap:13px}
-.pillar{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--fg);
-  border-radius:10px;padding:17px 19px}
-.pillar h3{font-size:16.5px}
-.pillar p{margin:0;font-size:14.8px;color:var(--dim);line-height:1.66}
+/* ── pillars ── */
+.pillars{display:grid;gap:12px;margin-top:22px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px}
+.pnum{display:inline-flex;align-items:center;justify-content:center;
+  width:23px;height:23px;border-radius:6px;background:var(--fg);color:var(--bg);
+  font-size:12.5px;font-weight:800;margin-bottom:9px}
+.pillar p{margin:0;font-size:15px;color:var(--dim);line-height:1.72}
+.pillar p+p{margin-top:11px}
 
-/* schedule */
-table{width:100%;border-collapse:collapse;font-size:14.8px}
-th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;color:var(--dim);letter-spacing:.05em;font-weight:700;text-transform:uppercase}
-td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;width:104px}
-.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* ── quote ── */
+blockquote{margin:0 0 18px;padding:17px 19px;background:var(--sunk);
+  border-left:3px solid var(--fg);border-radius:0 10px 10px 0}
+blockquote p{margin:0;font-size:15.5px;line-height:1.68}
+blockquote p+p{margin-top:10px}
+blockquote cite{display:block;margin-top:10px;font-size:13px;color:var(--faint);font-style:normal}
 
-ul{margin:0 0 14px;padding-left:19px}
-li{margin-bottom:7px}
-li::marker{color:var(--dim)}
+/* ── list ── */
+ul{margin:0 0 16px;padding-left:0;list-style:none}
+li{margin-bottom:11px;padding-left:19px;position:relative}
+li::before{content:"";position:absolute;left:2px;top:.66em;
+  width:5px;height:5px;border-radius:50%;background:var(--faint)}
+li.tick::before{content:"✓";background:none;left:0;top:0;
+  width:auto;height:auto;font-weight:800;color:var(--fg);font-size:14px}
+li.tick{padding-left:22px}
 
-.note{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.8px}
+/* ── table ── */
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:14.8px;min-width:300px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--faint);letter-spacing:.06em;font-weight:700;text-transform:uppercase}
+td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:750;width:88px}
+
+/* ── note ── */
+.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 19px}
 .note p:last-child{margin-bottom:0}
 
-.en{font-size:14.6px}
-.en h2{font-size:17px}
-.en p{margin-bottom:12px}
+/* ── faq ── */
+details{border-bottom:1px solid var(--line)}
+details summary{cursor:pointer;padding:16px 28px 16px 0;font-weight:700;font-size:15.5px;
+  list-style:none;position:relative;letter-spacing:-.01em}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:4px;top:15px;
+  font-size:19px;font-weight:400;color:var(--faint)}
+details[open] summary::after{content:"−"}
+details .body{padding:0 0 17px;color:var(--dim);font-size:15px}
+details .body p:last-child{margin-bottom:0}
 
-footer{padding:34px 0 60px;border-top:1px solid var(--line);font-size:13.5px;color:var(--dim)}
-footer a{color:inherit}
-a{color:var(--fg)}
+/* ── en ── */
+.en{background:var(--sunk);margin:0 -22px;padding:40px 22px}
+.en .wrap{padding:0}
+.en h2{font-size:17px}
+.en p{font-size:14.5px;margin-bottom:12px;color:var(--dim)}
+.en strong{color:var(--fg)}
+
+footer{padding:36px 0 56px;border-top:1px solid var(--line)}
+.foot-meta{font-size:13.5px;color:var(--faint);margin-top:24px;line-height:1.75}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+<!-- ══ HERO ══ -->
 <header>
-  <p class="kicker">2026 · 선릉 · 개인전</p>
-  <h1>6시간 뒤,<br>혼자 만든 게<br>인터넷에 올라가 있습니다.</h1>
+  <span class="eyebrow">10.31 SAT · 선릉</span>
+  <h1>강의는 다 들으셨는데,<br>아직 내 건 없으신가요.</h1>
   <p class="lede">
-    바이브코딩 해커톤입니다. <mark>밤 안 샙니다.</mark> <mark>팀 안 짭니다.</mark>
-    토요일 오후에 와서 저녁에 각자 배포하고 갑니다.
+    10월 31일 토요일, 선릉에서 <mark>6시간</mark> 해커톤을 합니다.<br>
+    오후 1시에 모여서 <strong>7시에 각자 만든 걸 인터넷에 올려놓고</strong> 헤어집니다.
+  </p>
+  <p class="byline">
+    주최 mandeun · 서강대에서 바이브코딩 방법론을 연구하고 연세대에서 인강을 냈습니다.
+    이번이 세 번째 모임이자 첫 해커톤입니다.
   </p>
 
   <dl class="facts">
@@ -107,194 +147,304 @@ a{color:var(--fg)}
     <div><dt>참가비</dt><dd>없음</dd></div>
   </dl>
 
-  <a class="cta" href="https://hackon.mandeun.com/">참가 신청하기</a>
-  <p class="cta-note">로그인 없이 신청됩니다 · 정원 20명</p>
+  <a class="cta" href="https://hackon.mandeun.com/">신청하기</a>
+  <p class="cta-note">로그인 없이 신청됩니다 · 20명 마감</p>
 </header>
 
+<!-- ══ 왜 6시간 ══ -->
+<section>
+  <h2>왜 6시간만 하냐면요</h2>
+  <p class="h2sub">이 대회가 존재하는 이유입니다.</p>
+
+  <blockquote>
+    <p>"완벽해지면 내겠다고 미루지 말고, <strong>일단 출시해 보세요.</strong>"</p>
+    <cite>벤처 투자 심사역이 창업자에게 가장 자주 한다는 조언</cite>
+  </blockquote>
+
+  <p>
+    저도 그랬습니다. 강의 결제하고, 절반쯤 듣고, 폴더 하나 만들어서 시작했다가
+    <strong>"이 정도로는 못 내놓지"</strong> 하고 덮어둔 게 몇 개 있습니다.
+  </p>
+  <p>
+    완성도를 높이려다 못 내는 게 제일 흔한 실패입니다.
+    <strong>6시간 마감은 그걸 강제로 부수려고 있는 겁니다.</strong>
+    7시에 무조건 끝나니까 "조금만 더 다듬고"가 애초에 불가능합니다.
+  </p>
+</section>
+
+<!-- ══ 세 기둥 ══ -->
 <section>
   <h2>이 해커톤이 다르게 하는 세 가지</h2>
   <div class="pillars">
 
     <div class="pillar">
-      <h3>1. 밤을 새우지 않습니다</h3>
+      <span class="pnum">1</span>
+      <h3>밤을 새우지 않습니다</h3>
       <p>
-        해커톤이 36시간·밤샘으로 굴러가는 동안, 돌볼 가족이 있는 사람과
-        체력이 예전 같지 않은 사람은 조용히 빠졌습니다. 그건 실력 문제가 아니라
-        설계 문제입니다. 이 대회는 <strong>토요일 오후 6시간</strong>이고,
-        저녁 7시에 끝나고 각자 집에 갑니다.
+        해커톤 하면 다들 이틀 밤새는 걸 떠올리시죠. 그렇게 하면 애 재우고 나와야 하는 분,
+        밤새면 다음 날이 통째로 날아가는 분은 <strong>아예 못 옵니다.</strong>
+        실력이 없어서가 아니라 행사를 그렇게 짜놔서요.
+      </p>
+      <p>토요일 오후 6시간입니다. 7시에 정확히 끝냅니다. 저녁 약속 있으셔도 됩니다.</p>
+    </div>
+
+    <div class="pillar">
+      <span class="pnum">2</span>
+      <h3>팀을 짜지 않습니다 — 전원 개인전</h3>
+      <p>
+        낯선 사람과 팀 짜느라 30분, 누가 뭘 할지 정하다 또 30분,
+        한 명 안 와서 무너지는 팀. <strong>이 셋이 전부 없습니다.</strong>
+        혼자 오시는 게 기본이라 아는 사람 없어도 어색할 일이 없습니다.
+      </p>
+      <p>
+        예전 같으면 혼자 6시간에 뭘 만든다는 게 말이 안 됐죠.
+        <strong>지금은 됩니다. 그래서 지금 하는 겁니다.</strong>
       </p>
     </div>
 
     <div class="pillar">
-      <h3>2. 팀을 짜지 않습니다 — 전원 개인전</h3>
+      <span class="pnum">3</span>
+      <h3>아무도 빈손으로 돌아가지 않습니다</h3>
       <p>
-        낯선 사람과 팀을 짜는 30분, 역할이 안 맞아 흘려보내는 시간,
-        한 명이 안 와서 무너지는 팀. 개인전은 이 셋이 전부 없습니다.
-        혼자 와서 혼자 만들고 혼자 냅니다. 처음 오셔도 어색할 일이 없습니다.
-        <br><br>
-        예전엔 혼자서 6시간에 뭘 만든다는 게 말이 안 됐습니다.
-        지금은 됩니다 — 그게 이 대회가 지금 열리는 이유입니다.
-      </p>
-    </div>
-
-    <div class="pillar">
-      <h3>3. 아무도 빈손으로 돌아가지 않습니다</h3>
-      <p>
-        보통은 우승자만 발표하고 나머지 결과물은 그날로 사라집니다.
+        보통 우승자만 발표하고 나머지 만든 건 그날로 사라집니다. 그게 제일 아쉬웠습니다.
         여기서는 마감 후 <strong>전원이 자기 자리에서 시연</strong>하고,
         심사위원과 참가자가 돌아다니며 전부 봅니다.
+      </p>
+      <p>
         그리고 <strong>모두가 자기 점수 분해와 심사평을 받습니다.</strong>
-        「왜 떨어졌는지 모르겠다」로 끝나지 않습니다.
+        "왜 떨어졌는지 모르겠다"로 끝나지 않습니다.
       </p>
     </div>
 
   </div>
 </section>
 
+<!-- ══ 뭘 얻어 가나 ══ -->
+<section>
+  <h2>6시간 쓰고 뭘 얻어 가냐면요</h2>
+  <p class="h2sub">"재밌었다"만 남으면 토요일을 쓸 이유가 없습니다.</p>
+
+  <ul>
+    <li class="tick"><strong>열리는 주소 하나.</strong>
+      데모 영상 말고, 남한테 링크로 보낼 수 있는 것. 만들다 만 폴더가 아니라 끝까지 간 결과물입니다.</li>
+    <li class="tick"><strong>심사위원 세 분의 점수 분해와 심사평.</strong>
+      어디가 좋았고 어디가 부족했는지 항목별로 적힌 기록. 혼자 만들면 절대 못 받습니다.</li>
+    <li class="tick"><strong>"6시간 안에 여기까지 갔다"는 사실.</strong>
+      지원서든 포트폴리오든, 보는 쪽은 아이디어보다 끝까지 간 증거를 봅니다.</li>
+    <li class="tick"><strong>다른 스무 명의 화면.</strong>
+      혼자면 6시간에 하나 보는데, 여기선 스무 개를 봅니다.</li>
+  </ul>
+
+  <blockquote>
+    <p>"<strong>만들 수 있느냐를 먼저 보지 않습니다.</strong> 결국 증거가 중요합니다."</p>
+    <cite>창업 지원사업 심사 현장에서</cite>
+  </blockquote>
+  <p class="small dim" style="margin-bottom:0">
+    머릿속 기획과 열리는 주소는 다른 물건입니다. 그 사이를 넘는 게 제일 어렵고,
+    혼자 하면 계속 미뤄집니다. 그 하루를 만들어 드리려고 여는 겁니다.
+  </p>
+
+  <div class="cta-block">
+    <a class="cta" href="https://hackon.mandeun.com/">신청하기</a>
+    <p class="cta-note">참가비 없음 · 20명 마감</p>
+  </div>
+</section>
+
+<!-- ══ 진행표 ══ -->
 <section>
   <h2>하루가 이렇게 갑니다</h2>
-  <div class="tbl-scroll">
+  <p class="h2sub">그림이 아니라 실제 진행표입니다.</p>
+  <div class="tbl">
   <table>
-    <thead><tr><th>시간</th><th>내용</th></tr></thead>
     <tbody>
       <tr><td>13:00</td><td><strong>오프닝 · 현장 미션 공개</strong><br>
-        <span class="dim">주제는 지금 공개돼 있지만, 조건 하나는 이 자리에서 엽니다.
-        미리 다 만들어 온 사람이 유리하지 않게 하기 위해서입니다.</span></td></tr>
+        <span class="dim small">주제는 미리 공개돼 있지만 조건 하나는 이 자리에서 엽니다.
+        미리 다 만들어 온 사람이 유리하지 않게요.</span></td></tr>
       <tr><td>13:20</td><td><strong>만들기 · 240분</strong><br>
-        <span class="dim">큰 화면에 남은 시간과 아직 안 낸 사람이 뜹니다.
-        「언제까지예요」를 아무도 안 묻게 됩니다.</span></td></tr>
+        <span class="dim small">큰 화면에 남은 시간과 아직 안 낸 사람이 뜹니다.
+        "언제까지예요"를 아무도 안 묻게 됩니다.</span></td></tr>
       <tr><td>17:20</td><td><strong>제출 마감</strong><br>
-        <span class="dim">서버가 막습니다. 주소를 아는 사람만 늦게 내는 일이 없습니다.</span></td></tr>
+        <span class="dim small">서버가 막습니다. 주소를 아는 사람만 늦게 내는 일이 없습니다.</span></td></tr>
       <tr><td>17:30</td><td><strong>갤러리 워크 · 40분</strong><br>
-        <span class="dim">각자 자리에서 시연합니다. 발표 순서를 기다리지 않습니다.</span></td></tr>
+        <span class="dim small">각자 자리에서 시연합니다. 발표 순서를 기다리지 않습니다.</span></td></tr>
       <tr><td>18:10</td><td><strong>발표 · 시상</strong><br>
-        <span class="dim">상위 5명만 무대에서 3분씩. 나머지는 이미 갤러리 워크에서 다 보여줬습니다.</span></td></tr>
+        <span class="dim small">상위 5명만 3분씩. 나머지는 이미 갤러리 워크에서 다 보여줬습니다.</span></td></tr>
       <tr><td>19:00</td><td><strong>끝</strong><br>
-        <span class="dim">정시에 끝냅니다. 저녁 약속 있으셔도 됩니다.</span></td></tr>
+        <span class="dim small">정시에 끝냅니다.</span></td></tr>
     </tbody>
   </table>
   </div>
 </section>
 
+<!-- ══ 이런 분 ══ -->
 <section>
-  <h2>이런 분을 부릅니다</h2>
+  <h2>이런 분들 오세요</h2>
+  <p class="h2sub">관심만 있는 분보다, 이미 시간을 써보신 분에게 맞습니다.</p>
   <ul>
-    <li><strong>AI로 뭔가 만들어 봤는데 끝까지 못 가본 분</strong> — 배포까지 가는 게 이 대회의 전부입니다.</li>
-    <li><strong>개발자가 아닌 분</strong> — 코드를 직접 못 써도 됩니다. 그게 바이브코딩입니다.</li>
-    <li><strong>40대·50대</strong> — 앞선 모임에서 이미 함께했습니다. 나이로 밀리는 자리 아닙니다.</li>
-    <li><strong>혼자 오시는 분</strong> — 전원 개인전이라 혼자가 기본값입니다.</li>
-    <li><strong>해커톤이 처음인 분</strong> — 6시간이고 밤을 안 새웁니다. 첫 해커톤으로 알맞습니다.</li>
+    <li><strong>만들다 만 폴더가 있으신 분</strong></li>
+    <li><strong>강의는 다 들었는데 내 건 없으신 분</strong></li>
+    <li><strong>아이디어 메모만 쌓여 있는 분</strong></li>
+    <li><strong>AI랑 몇 시간 떠들다 그냥 닫은 창이 여러 개인 분</strong></li>
+    <li>코드를 직접 못 쓰셔도 됩니다 — 그러라고 있는 게 바이브코딩입니다</li>
+    <li><strong>40대·50대</strong> — 지난 모임에서 이미 함께했습니다. 나이로 밀리는 자리 아닙니다</li>
+    <li>해커톤이 처음이신 분 — 밤 안 새우고 6시간이라 첫 해커톤으로 알맞습니다</li>
   </ul>
   <div class="note">
-    <p><strong>가져오실 것</strong> — 노트북, 충전기, 쓰던 AI 도구 계정.</p>
-    <p><strong>준비돼 있는 것</strong> — 자리마다 콘센트, 와이파이, 저녁 식사.</p>
+    <p class="small"><strong>가져오실 것</strong> — 노트북, 충전기, 쓰시던 AI 도구 계정</p>
+    <p class="small"><strong>준비돼 있는 것</strong> — 자리마다 콘센트, 와이파이, 저녁 식사</p>
   </div>
 </section>
 
-<section>
-  <h2>여기서 뭘 얻어 가나</h2>
-  <p>
-    6시간 뒤에 남는 게 「재밌었다」뿐이면 토요일을 쓸 이유가 없습니다.
-    손에 쥐고 가시는 건 이겁니다.
-  </p>
-  <ul>
-    <li><strong>인터넷에 열리는 주소 하나.</strong> 데모 영상이 아니라 남한테 링크로 보낼 수 있는 것.
-      만들다 만 폴더가 아니라 끝까지 간 결과물입니다.</li>
-    <li><strong>심사위원 3인의 점수 분해와 심사평.</strong> 어디가 좋았고 어디가 부족했는지
-      항목별로 적힌 기록입니다. 혼자 만들면 절대 못 받는 것입니다.</li>
-    <li><strong>「6시간 안에 여기까지 갔다」는 사실.</strong>
-      창업 지원사업이든 포트폴리오든, 심사하는 쪽이 보는 건 아이디어가 아니라
-      <strong>실제로 끝까지 실행한 증거</strong>입니다. 그 증거를 하루에 하나 만들어 갑니다.</li>
-    <li><strong>같은 걸 하는 사람 스무 명의 화면.</strong> 갤러리 워크에서 전부 봅니다.
-      혼자 하면 6시간에 하나를 보지만, 여기선 스무 개를 봅니다.</li>
-  </ul>
-  <div class="note">
-    <p class="small">
-      벤처 투자 심사역이 창업자에게 가장 자주 하는 조언이 이거라고 합니다 —
-      <strong>「완벽해지면 내겠다고 미루지 말고, 일단 출시해 보세요.」</strong>
-      실제로 심사에서는 <strong>「만들 수 있느냐」를 먼저 보지 않습니다.</strong>
-      본 사람이 있는지, 쓴 사람이 있는지를 봅니다.
-    </p>
-    <p class="small" style="margin-bottom:0">
-      완성도를 높이려다 못 내는 게 제일 흔한 실패입니다.
-      <strong>6시간 마감은 그걸 강제로 부수려고 있는 겁니다.</strong>
-    </p>
-  </div>
-</section>
-
+<!-- ══ 심사 ══ -->
 <section>
   <h2>심사</h2>
-  <p>심사표를 <strong>시작할 때 미리 공개</strong>합니다. 끝나고 나서 기준을 알게 되는 일은 없습니다.</p>
-  <div class="tbl-scroll">
+  <p class="h2sub">심사표를 시작할 때 미리 공개합니다. 끝나고 나서 기준을 알게 되는 일은 없습니다.</p>
+  <div class="tbl">
   <table>
     <thead><tr><th>항목</th><th>보는 것</th></tr></thead>
     <tbody>
       <tr><td>완성</td><td>지금 인터넷에서 열리는가. 데모 영상이 아니라 <strong>주소</strong>로 냅니다</td></tr>
       <tr><td>미션</td><td>현장에서 공개된 조건을 반영했는가</td></tr>
-      <tr><td>쓸모</td><td>누가 이걸 왜 쓰는지 한 문장으로 설명되는가</td></tr>
+      <tr><td>쓸모</td><td><strong>누가 이걸 왜 쓰는지</strong> 한 문장으로 설명되는가</td></tr>
       <tr><td>완주</td><td>6시간을 어디에 썼는가 — 만들다 만 것도 과정이 보이면 점수가 있습니다</td></tr>
     </tbody>
   </table>
   </div>
-  <p class="small dim" style="margin-top:14px">
-    심사위원은 서로 다른 것을 보는 사람으로 섭외합니다. 순위와 다른 사람 점수는
-    심사위원에게도 안 보여줍니다 — 보이면 점수가 끌려갑니다.
+  <p class="tiny">
+    심사위원은 서로 다른 것을 보는 분들로 모십니다. 순위와 다른 사람 점수는
+    심사위원에게도 보여주지 않습니다 — 보이면 점수가 끌려갑니다.
   </p>
 </section>
 
+<!-- ══ FAQ ══ -->
+<section>
+  <h2>자주 묻는 것</h2>
+  <p class="h2sub">망설이시는 이유가 여기 있을 것 같습니다.</p>
+
+  <details>
+    <summary>코딩을 못 하는데 가도 되나요?</summary>
+    <div class="body"><p>
+      됩니다. 그러라고 있는 게 바이브코딩입니다. AI에게 말로 시켜서 만드는 방식이라
+      직접 코드를 쓸 줄 몰라도 결과물이 나옵니다. 오히려 <strong>"뭘 만들지"가 분명한 분</strong>이
+      유리합니다. 심사에서도 코드 품질을 보지 않습니다.
+    </p></div>
+  </details>
+
+  <details>
+    <summary>혼자 가도 괜찮나요?</summary>
+    <div class="body"><p>
+      <strong>혼자 오시는 게 기본입니다.</strong> 전원 개인전이라 팀을 짜지 않습니다.
+      아는 사람이 없어야 정상이고, 그래서 어색할 일이 없습니다.
+    </p></div>
+  </details>
+
+  <details>
+    <summary>6시간 안에 진짜 뭐가 나오나요?</summary>
+    <div class="body"><p>
+      완성된 서비스는 안 나옵니다. 나오는 건 <strong>열리는 주소 하나</strong>입니다.
+      화면 두세 개짜리, 기능 하나짜리여도 됩니다. 중요한 건 크기가 아니라
+      <strong>인터넷에 올라가 있느냐</strong>입니다. 만들다 만 것도 과정이 보이면 심사 점수가 있습니다.
+    </p></div>
+  </details>
+
+  <details>
+    <summary>뭘 만들지 정하고 가야 하나요?</summary>
+    <div class="body"><p>
+      정해 오시면 좋지만 필수는 아닙니다. 다만 <strong>13시에 조건 하나가 현장에서 공개</strong>되니,
+      미리 다 만들어 오셔도 그날 손을 대셔야 합니다. 아이디어가 없으시면
+      그동안 덮어뒀던 폴더를 들고 오시는 것도 방법입니다.
+    </p></div>
+  </details>
+
+  <details>
+    <summary>나이가 좀 있는데 괜찮을까요?</summary>
+    <div class="body"><p>
+      괜찮습니다. 지난 모임 한 회차는 <strong>40·50대를 대상으로</strong> 열었고 잘 굴러갔습니다.
+      밤을 안 새우는 것도 그래서입니다 — 밤샘 포맷은 체력으로 사람을 거르는데,
+      그건 실력과 아무 상관이 없습니다.
+    </p></div>
+  </details>
+
+  <details>
+    <summary>정말 무료인가요? 나중에 뭘 파나요?</summary>
+    <div class="body"><p>
+      참가비 없고 저녁도 제공합니다. 파는 것 없습니다.
+      이 대회는 제가 만든 오픈소스 해커톤 운영 도구 <strong>HACK:ON</strong>의 첫 실전이라,
+      실제로 굴려보는 게 저에게 남는 것입니다. 코드도 공개돼 있습니다.
+    </p></div>
+  </details>
+
+  <details>
+    <summary>중간에 가도 되나요?</summary>
+    <div class="body"><p>
+      됩니다. 다만 <strong>17:30 갤러리 워크</strong>까지는 계셔야 만든 걸 보여주고
+      심사평을 받으실 수 있습니다. 19시 정각에 끝나니 저녁 약속은 그 뒤로 잡으시면 됩니다.
+    </p></div>
+  </details>
+
+  <div class="cta-block">
+    <a class="cta" href="https://hackon.mandeun.com/">신청하기</a>
+    <p class="cta-note">10월 31일 (토) 13:00 – 19:00 · 선릉 · 20명 마감</p>
+  </div>
+</section>
+
+<!-- ══ 누가 여나 ══ -->
 <section>
   <h2>누가 여나</h2>
   <p>
     <strong>mandeun</strong>이 엽니다. 서강대 경영학과에서
-    <strong>바이브코딩의 기획부터 배포까지의 방법론</strong>을 연구하며
-    실제 서비스 두 개를 만들었고, 연세대에서 관련 인강을 런칭했습니다.
+    <strong>바이브코딩의 기획부터 배포까지의 방법론</strong>을 연구하며 실제 서비스 두 개를 만들었고,
+    연세대에서 관련 인강을 런칭했습니다.
   </p>
   <p>
     지금까지 두 번의 모임을 열었습니다. 한 번은 <strong>40·50대</strong>를 대상으로,
-    한 번은 <strong>이미 잘 쓰는 사람들</strong>을 대상으로. 이번이 세 번째이자 첫 해커톤입니다.
+    한 번은 <strong>이미 잘 쓰는 분들</strong>을 대상으로. 이번이 세 번째이자 첫 해커톤입니다.
   </p>
-  <p class="small dim">
+  <p class="small dim" style="margin-bottom:0">
     이 대회는 직접 만든 오픈소스 해커톤 운영 도구
     <a href="https://hackon.mandeun.com/">HACK:ON</a>으로 굴러갑니다.
     코드는 <a href="https://github.com/mandeun/hackon">공개돼 있습니다</a>.
   </p>
 </section>
+</div>
 
-<section class="en" lang="en">
+<!-- ══ EN ══ -->
+<div class="en" lang="en">
+<div class="wrap">
   <h2>In English</h2>
   <p>
-    <strong>Seolleung Vibe Coding Hackathon</strong> — Saturday, 31 October 2026,
-    13:00–19:00 KST, Seolleung, Seoul. Free to enter. <strong>Solo format: no teams.</strong>
+    <strong>Seolleung Solo Vibe-Coding Hackathon</strong> — Saturday 31 October 2026,
+    13:00–19:00 KST, Seolleung, Seoul. Free entry. <strong>Solo format: no teams.</strong>
   </p>
   <p>
-    Six hours, one person, one deployed URL at the end. We deliberately designed against the
-    three things people complain about most: overnight formats that exclude anyone with
-    caregiving duties or health limits, team-matching friction, and the void that most
-    participants' work disappears into. Everyone demos in a gallery walk, and
-    <strong>everyone receives their score breakdown and written feedback</strong>.
+    Six hours, one person, one deployed URL at the end. The format is designed against the three
+    things people complain about most: overnight events that quietly exclude anyone with caregiving
+    duties or health limits, team-matching friction, and the void that most participants' work
+    disappears into. Everyone demos in a gallery walk and
+    <strong>everyone receives their score breakdown and written feedback.</strong>
   </p>
   <p>
-    Built and judged around the modern AI web stack — v0, the AI SDK and Next.js —
-    and run on <a href="https://github.com/mandeun/hackon">HACK:ON</a>, an open-source
-    hackathon platform we wrote ourselves. Organised by <strong>mandeun</strong>,
-    who researches vibe-coding methodology (concept through deployment) at Sogang
-    University's business school and launched a related online course at Yonsei University.
+    Built around the modern AI web stack — v0, the AI SDK and Next.js — and run on
+    <a href="https://github.com/mandeun/hackon">HACK:ON</a>, an open-source hackathon platform
+    we wrote ourselves. Organised by <strong>mandeun</strong>, who researches vibe-coding
+    methodology (concept through deployment) at Sogang University's business school and launched
+    a related online course at Yonsei University. Two prior community meetups have been run —
+    one for participants in their 40s and 50s, one for experienced builders.
+    This is the third gathering and the first hackathon.
   </p>
-  <p>Two prior community meetups have been run — one for participants in their 40s and 50s, one for experienced builders. This is the third gathering and the first hackathon.</p>
-</section>
+</div>
+</div>
 
+<div class="wrap">
 <footer>
-  <p>
-    <a class="cta" href="https://hackon.mandeun.com/">참가 신청하기</a>
-  </p>
-  <p style="margin-top:20px">
-    선릉 바이브코딩 해커톤 · 2026년 10월 31일 (토) 13:00–19:00<br>
+  <a class="cta" href="https://hackon.mandeun.com/">신청하기</a>
+  <p class="foot-meta">
+    선릉 바이브코딩 해커톤 · 2026년 10월 31일 (토) 13:00–19:00 · 선릉<br>
     주최 mandeun · 문의는 <a href="https://hackon.mandeun.com/">신청 페이지</a>에서<br>
     <a href="https://hackon.mandeun.com/">HACK:ON</a> ·
     <a href="https://github.com/mandeun/hackon">GitHub</a>
   </p>
 </footer>
-
 </div>
 </body>
 </html>
