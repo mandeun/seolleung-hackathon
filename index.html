@@ -8,6 +8,10 @@
 <meta property="og:title" content="강의는 다 들으셨는데, 아직 내 건 없으신가요">
 <meta property="og:description" content="10/31(토) 13–19시 · 선릉 · 개인전 6시간 · 참가비 무료. 7시에 각자 주소 하나씩 들고 나갑니다.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://hackathon-ochre-eight.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root{
   --bg:#fbfaf8; --fg:#17171a; --dim:#5f5f68; --faint:#8b8b93;
@@ -120,12 +124,21 @@ details .body p:last-child{margin-bottom:0}
 .en p{font-size:14.5px;margin-bottom:12px;color:var(--dim)}
 .en strong{color:var(--fg)}
 
+.langbar{display:flex;gap:8px;padding:14px 0 0}
+.langbar a{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-decoration:none;
+  color:var(--faint);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+.langbar a[aria-current]{color:var(--accent-fg);background:var(--accent);border-color:var(--accent)}
 footer{padding:36px 0 56px;border-top:1px solid var(--line)}
 .foot-meta{font-size:13.5px;color:var(--faint);margin-top:24px;line-height:1.75}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<nav class="langbar">
+  <a href="/" aria-current="page">한국어</a>
+  <a href="/en">EN</a>
+</nav>
 
 <!-- ══ HERO ══ -->
 <header>
@@ -500,34 +513,15 @@ footer{padding:36px 0 56px;border-top:1px solid var(--line)}
     <a href="https://hackon.mandeun.com/">HACK:ON</a>으로 굴러갑니다.
     코드는 <a href="https://github.com/mandeun/hackon">공개돼 있습니다</a>.
   </p>
+  <div class="note" style="margin-top:18px">
+    <p class="small" style="margin-bottom:8px"><strong>직접 확인해 보셔도 됩니다</strong></p>
+    <p class="small" style="margin-bottom:0" class="dim">
+      운영 도구 <a href="https://hackon.mandeun.com/">hackon.mandeun.com</a> ·
+      소스 <a href="https://github.com/mandeun/hackon">github.com/mandeun/hackon</a> ·
+      영문 안내 <a href="/en">English page</a>
+    </p>
+  </div>
 </section>
-</div>
-
-<!-- ══ EN ══ -->
-<div class="en" lang="en">
-<div class="wrap">
-  <h2>In English</h2>
-  <p>
-    <strong>Seolleung Solo Vibe-Coding Hackathon</strong> — Saturday 31 October 2026,
-    13:00–19:00 KST, Seolleung, Seoul. Free entry. <strong>Solo format: no teams.</strong>
-  </p>
-  <p>
-    Six hours, one person, one deployed URL at the end. The format is designed against the three
-    things people complain about most: overnight events that quietly exclude anyone with caregiving
-    duties or health limits, team-matching friction, and the void that most participants' work
-    disappears into. Everyone demos in a gallery walk and
-    <strong>everyone receives their score breakdown and written feedback.</strong>
-  </p>
-  <p>
-    Built around the modern AI web stack — v0, the AI SDK and Next.js — and run on
-    <a href="https://github.com/mandeun/hackon">HACK:ON</a>, an open-source hackathon platform
-    we wrote ourselves. Organised by <strong>mandeun</strong>, who researches vibe-coding
-    methodology (concept through deployment) at Sogang University's business school and launched
-    a related online course at Yonsei University. Two prior community meetups have been run —
-    one for participants in their 40s and 50s, one for experienced builders.
-    This is the third gathering and the first hackathon.
-  </p>
-</div>
 </div>
 
 <div class="wrap">

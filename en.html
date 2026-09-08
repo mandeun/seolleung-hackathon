@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seolleung Solo Vibe-Coding Hackathon — 31 Oct 2026, Seoul</title>
+<meta name="description" content="Six hours, solo, one deployed URL. A deliberately non-overnight, no-teams hackathon in Seoul, run on an open-source platform we built ourselves.">
+<meta property="og:title" content="Seolleung Solo Vibe-Coding Hackathon">
+<meta property="og:description" content="31 Oct 2026 · Seoul · 6 hours · solo, no teams · free entry. Run on HACK:ON, an open-source hackathon platform we built.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://hackathon-ochre-eight.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+
+:root{
+  --bg:#fbfaf8; --fg:#17171a; --dim:#5f5f68; --faint:#8b8b93;
+  --line:#e6e3dd; --card:#fff; --sunk:#f4f2ee;
+  --accent:#111; --accent-fg:#fff; --mark:#ffe27a;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121214; --fg:#eceae6; --dim:#a19c94; --faint:#7d786f;
+  --line:#2b2a28; --card:#1b1b1d; --sunk:#191918;
+  --accent:#eceae6; --accent-fg:#121214; --mark:#5a4a12;
+}}
+:root[data-theme="dark"]{
+  --bg:#121214; --fg:#eceae6; --dim:#a19c94; --faint:#7d786f;
+  --line:#2b2a28; --card:#1b1b1d; --sunk:#191918;
+  --accent:#eceae6; --accent-fg:#121214; --mark:#5a4a12;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.75 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,
+  "Noto Sans KR",Segoe UI,sans-serif;
+  word-break:keep-all;overflow-wrap:anywhere;
+  padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:660px;margin:0 auto;padding:0 22px}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h1{font-size:clamp(27px,6.6vw,40px);line-height:1.25;letter-spacing:-.033em;margin:0 0 16px;font-weight:800}
+h2{font-size:clamp(19px,4.4vw,23px);letter-spacing:-.025em;margin:0 0 8px;font-weight:750;line-height:1.35}
+.h2sub{color:var(--dim);font-size:15px;margin:0 0 22px}
+h3{font-size:16.5px;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+p{margin:0 0 15px}
+.dim{color:var(--dim)} .small{font-size:14.5px} .tiny{font-size:13px;color:var(--faint)}
+strong{font-weight:700}
+mark{background:var(--mark);color:var(--fg);padding:0 4px;border-radius:2px}
+a{color:var(--fg)}
+
+/* ── hero ── */
+header{padding:52px 0 46px}
+.eyebrow{display:inline-block;font-size:12px;font-weight:750;letter-spacing:.12em;
+  color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:5px 13px;margin:0 0 20px}
+.lede{font-size:17px;margin:0 0 12px}
+.byline{font-size:13.5px;color:var(--faint);margin:0 0 26px}
+
+.facts{display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:13px;
+  overflow:hidden;margin:0 0 24px}
+@media(min-width:560px){.facts{grid-template-columns:repeat(4,1fr)}}
+.facts div{background:var(--card);padding:13px 15px}
+.facts dt{font-size:11px;color:var(--faint);font-weight:700;letter-spacing:.07em;margin-bottom:2px}
+.facts dd{margin:0;font-size:15px;font-weight:750;letter-spacing:-.015em}
+
+/* ── cta ── */
+.cta{display:block;width:100%;text-align:center;background:var(--accent);color:var(--accent-fg);
+  text-decoration:none;font-weight:750;font-size:16.5px;padding:17px 24px;border-radius:12px;
+  letter-spacing:-.01em}
+.cta:active{transform:translateY(1px)}
+.cta-note{font-size:13.5px;color:var(--faint);margin:10px 0 0;text-align:center}
+.cta-block{margin:30px 0 0}
+
+/* ── pillars ── */
+.pillars{display:grid;gap:12px;margin-top:22px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px}
+.pnum{display:inline-flex;align-items:center;justify-content:center;
+  width:23px;height:23px;border-radius:6px;background:var(--fg);color:var(--bg);
+  font-size:12.5px;font-weight:800;margin-bottom:9px}
+.pillar p{margin:0;font-size:15px;color:var(--dim);line-height:1.72}
+.pillar p+p{margin-top:11px}
+
+/* ── quote ── */
+blockquote{margin:0 0 18px;padding:17px 19px;background:var(--sunk);
+  border-left:3px solid var(--fg);border-radius:0 10px 10px 0}
+blockquote p{margin:0;font-size:15.5px;line-height:1.68}
+blockquote p+p{margin-top:10px}
+blockquote cite{display:block;margin-top:10px;font-size:13px;color:var(--faint);font-style:normal}
+
+/* ── list ── */
+ul{margin:0 0 16px;padding-left:0;list-style:none}
+li{margin-bottom:11px;padding-left:19px;position:relative}
+li::before{content:"";position:absolute;left:2px;top:.66em;
+  width:5px;height:5px;border-radius:50%;background:var(--faint)}
+li.tick::before{content:"✓";background:none;left:0;top:0;
+  width:auto;height:auto;font-weight:800;color:var(--fg);font-size:14px}
+li.tick{padding-left:22px}
+
+/* ── table ── */
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:14.8px;min-width:300px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;color:var(--faint);letter-spacing:.06em;font-weight:700;text-transform:uppercase}
+td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:750;width:88px}
+
+/* ── note ── */
+.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 19px}
+.note p:last-child{margin-bottom:0}
+
+/* ── faq ── */
+details{border-bottom:1px solid var(--line)}
+details summary{cursor:pointer;padding:16px 28px 16px 0;font-weight:700;font-size:15.5px;
+  list-style:none;position:relative;letter-spacing:-.01em}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:4px;top:15px;
+  font-size:19px;font-weight:400;color:var(--faint)}
+details[open] summary::after{content:"−"}
+details .body{padding:0 0 17px;color:var(--dim);font-size:15px}
+details .body p:last-child{margin-bottom:0}
+
+/* ── en ── */
+.en{background:var(--sunk);margin:0 -22px;padding:40px 22px}
+.en .wrap{padding:0}
+.en h2{font-size:17px}
+.en p{font-size:14.5px;margin-bottom:12px;color:var(--dim)}
+.en strong{color:var(--fg)}
+
+footer{padding:36px 0 56px;border-top:1px solid var(--line)}
+.foot-meta{font-size:13.5px;color:var(--faint);margin-top:24px;line-height:1.75}
+.langbar{display:flex;gap:8px;padding:14px 0 0}
+.langbar a{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-decoration:none;
+  color:var(--faint);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+.langbar a[aria-current]{color:var(--accent-fg);background:var(--accent);border-color:var(--accent)}
+.kv{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;margin:0 0 18px}
+.kv>div{background:var(--card);padding:13px 16px;display:grid;grid-template-columns:1fr;gap:2px}
+@media(min-width:520px){.kv>div{grid-template-columns:150px 1fr;gap:14px;align-items:baseline}}
+.kv b{font-size:12px;letter-spacing:.06em;color:var(--faint);font-weight:700;text-transform:uppercase}
+.kv span{font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="langbar">
+  <a href="/">한국어</a>
+  <a href="/en" aria-current="page">EN</a>
+</nav>
+
+<header>
+  <span class="eyebrow">31 OCT 2026 · SEOUL</span>
+  <h1>Six hours.<br>One person.<br>One deployed URL.</h1>
+  <p class="lede">
+    A solo-format hackathon in Seolleung, Seoul — no teams, no overnight, free entry.
+    Everyone walks out at 7pm with something live on the internet.
+  </p>
+  <p class="byline">
+    Organised by <strong>mandeun</strong> · Third community gathering, first hackathon ·
+    Run on <a href="https://github.com/mandeun/hackon">HACK:ON</a>, an open-source hackathon
+    platform we wrote ourselves.
+  </p>
+
+  <div class="kv">
+    <div><b>Date</b><span>Saturday, 31 October 2026</span></div>
+    <div><b>Time</b><span>13:00 – 19:00 KST (6 hours)</span></div>
+    <div><b>Location</b><span>Seolleung, Gangnam-gu, Seoul</span></div>
+    <div><b>Format</b><span>Solo — no teams, individual entries only</span></div>
+    <div><b>Entry</b><span>Free · capped at 20 participants</span></div>
+    <div><b>Stack</b><span>v0 · AI SDK · Next.js · Vercel</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>Why this format</h2>
+  <p class="h2sub">Three deliberate decisions, each aimed at a specific, documented failure mode.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <span class="pnum">1</span>
+      <h3>No overnight</h3>
+      <p>
+        The 36-hour format quietly filters out anyone with caregiving duties, health limits, or
+        a job that needs them functional on Sunday. As one developer put it, only
+        <em>"young developers with no responsibilities and ample free time"</em> can participate.
+        That is a design failure, not a skill filter.
+      </p>
+      <p>Six hours on a Saturday afternoon. Ends at 19:00 sharp. Everyone goes home.</p>
+    </div>
+
+    <div class="pillar">
+      <span class="pnum">2</span>
+      <h3>No teams</h3>
+      <p>
+        Team matching burns the first 30–60 minutes, produces mismatched roles, and collapses
+        when one person doesn't show. Solo removes all three. It also means a no-show costs
+        one seat instead of one team.
+      </p>
+      <p>
+        A solo six-hour build wasn't realistic two years ago.
+        <strong>v0 and the AI SDK are precisely what changed that</strong> — which is why this
+        event makes sense now and not before.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <span class="pnum">3</span>
+      <h3>Nobody leaves empty-handed</h3>
+      <p>
+        At most hackathons only the winners present and everyone else's work disappears the same
+        day. Here, submissions close and <strong>every participant demos at their own desk</strong>
+        in a 40-minute gallery walk. Then the top five present for three minutes each.
+      </p>
+      <p>
+        <strong>Every participant receives their score breakdown and written feedback.</strong>
+        The rubric is published at the start, not revealed at the end. The single most common
+        complaint about hackathon judging is "I never found out why I lost" — this closes it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>What sponsors get back</h2>
+  <p class="h2sub">Specific, and delivered within one week.</p>
+
+  <blockquote>
+    <p>
+      We don't report impressions. The platform we built records
+      <strong>completion rate, projects shipped, and which products they were built on</strong>
+      as first-class data, because "how many people saw it" is the number sponsors
+      have told us they're tired of receiving.
+    </p>
+  </blockquote>
+
+  <ul>
+    <li class="tick"><strong>Registered vs. actual attendance</strong> — the honest pair, not just the flattering one</li>
+    <li class="tick"><strong>Number of projects shipped</strong>, and how many were built on Vercel products</li>
+    <li class="tick"><strong>Links to every deployed project</strong>, not only the winners</li>
+    <li class="tick"><strong>Photos and a written recap</strong></li>
+    <li class="tick"><strong>Confirmed brand placement</strong> — logo on the event graphic, mention and description on this page, and a social post</li>
+  </ul>
+
+  <p>
+    We would also welcome a <strong>judge or mentor</strong> joining us, remotely or in person.
+    Judging runs 17:30–19:00 KST.
+  </p>
+  <p class="small dim" style="margin-bottom:0">
+    Practical note: this is a first edition at small scale. We'd rather tell you that up front
+    than pad the numbers. What we can promise is that whatever happens gets reported accurately,
+    including the parts that don't flatter us.
+  </p>
+</section>
+
+<section>
+  <h2>Who is running it</h2>
+  <div class="kv">
+    <div><b>Organiser</b><span><strong>mandeun</strong> (Jaewon Yoo)</span></div>
+    <div><b>Research</b><span>Vibe-coding methodology — concept through deployment — at Sogang University's business school. Two products shipped out of it.</span></div>
+    <div><b>Teaching</b><span>Launched a related online course at Yonsei University.</span></div>
+    <div><b>Track record</b><span>Two prior community meetups: one for participants in their 40s–50s, one for experienced builders.</span></div>
+    <div><b>Open source</b><span><a href="https://github.com/mandeun/hackon">github.com/mandeun/hackon</a> — the platform this event runs on</span></div>
+  </div>
+  <p class="small dim" style="margin-bottom:0">
+    Bringing both generations into the same room is the point. AI tooling is the first thing in
+    years that makes a six-hour build realistic for people who don't write code professionally —
+    and that group skews far older than a typical hackathon roster.
+  </p>
+</section>
+
+<section>
+  <h2>Schedule</h2>
+  <div class="tbl">
+  <table>
+    <tbody>
+      <tr><td>13:00</td><td><strong>Opening · surprise constraint revealed</strong><br>
+        <span class="dim small">The theme is public in advance; one condition is released only on the day, so nobody gains by arriving with a finished project.</span></td></tr>
+      <tr><td>13:20</td><td><strong>Build · 240 minutes</strong><br>
+        <span class="dim small">A room display shows time remaining and who hasn't submitted.</span></td></tr>
+      <tr><td>17:20</td><td><strong>Submissions close</strong><br>
+        <span class="dim small">Enforced server-side, not by locking a screen.</span></td></tr>
+      <tr><td>17:30</td><td><strong>Gallery walk · 40 minutes</strong><br>
+        <span class="dim small">Everyone demos at their desk. Judges and participants circulate.</span></td></tr>
+      <tr><td>18:10</td><td><strong>Top five present · awards</strong></td></tr>
+      <tr><td>19:00</td><td><strong>Ends</strong> <span class="dim small">— on time.</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Judging rubric</h2>
+  <p class="h2sub">Published to participants before the clock starts.</p>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>Criterion</th><th>What we look at</th></tr></thead>
+    <tbody>
+      <tr><td>Shipped</td><td>Does it open on the internet right now? Submissions are <strong>URLs</strong>, not demo videos</td></tr>
+      <tr><td>Constraint</td><td>Did it incorporate the condition revealed on the day?</td></tr>
+      <tr><td>Usefulness</td><td>Can you say <strong>who uses this and why</strong> in one sentence?</td></tr>
+      <tr><td>Follow-through</td><td>Where did the six hours go? Unfinished work still scores if the path is visible</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tiny">
+    Judges are chosen to look at different things. Rankings and other judges' scores are hidden
+    from judges during scoring — visible rankings drag scores toward consensus.
+  </p>
+  <div class="cta-block">
+    <a class="cta" href="https://hackon.mandeun.com/">Registration (Korean)</a>
+    <p class="cta-note">Questions in English are welcome through the same page.</p>
+  </div>
+</section>
+
+</div>
+
+<div class="wrap">
+<footer>
+  <p class="foot-meta">
+    Seolleung Solo Vibe-Coding Hackathon · Saturday 31 October 2026, 13:00–19:00 KST · Seoul<br>
+    Organised by mandeun ·
+    <a href="/">한국어 페이지</a> ·
+    <a href="https://hackon.mandeun.com/">HACK:ON</a> ·
+    <a href="https://github.com/mandeun/hackon">GitHub</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>
